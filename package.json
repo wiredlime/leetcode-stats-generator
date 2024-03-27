@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "build": "npm build"
+    "build": "do something"
   },
   "dependencies": {
     "cors": "^2.8.5",
