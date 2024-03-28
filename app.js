@@ -1,5 +1,6 @@
 var express = require("express");
 const satori = require("satori").default;
+var fs = require("fs");
 require("dotenv").config();
 // workarounds to use ESM only packages in commonjs file
 const html = (...args) =>
@@ -10,9 +11,7 @@ const fetch = (...args) =>
 var app = express();
 app.use(express.static("public"));
 
-const inter = fetch("http://localhost:8000/Fredoka.ttf").then((res) =>
-  res.arrayBuffer()
-);
+const inter = fs.readFileSync("./public/Fredoka.ttf");
 
 app.get("/", async (req, res) => {
   const { username } = req.query;

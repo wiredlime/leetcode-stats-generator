@@ -13,6 +13,7 @@
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
+    "fs": "^0.0.1-security",
     "node-fetch": "^3.3.2",
     "nodemon": "^2.0.20",
     "satori": "^0.10.13",
