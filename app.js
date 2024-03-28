@@ -44,6 +44,8 @@ app.get("/", async (req, res) => {
     ],
   });
 
+  res.header("Content-Type", "image/svg+xml");
+
   res.send(svg);
 });
 
