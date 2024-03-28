@@ -11,7 +11,7 @@ const fetch = (...args) =>
 var app = express();
 app.use(express.static("public"));
 
-const inter = fs.readFileSync("./public/Fredoka.ttf");
+const NotoSans = fs.readFileSync("./public/NotoSans-Black.ttf");
 
 app.get("/", async (req, res) => {
   const { username } = req.query;
@@ -21,8 +21,8 @@ app.get("/", async (req, res) => {
   let data = await stats.json();
 
   const string = `<div style="display: flex; flex-direction: column; justify-content: space-between; row-gap: 15px; font-weight: 600; padding: 1rem; width:100%; height: 100%">
-  <h2 style="color: #6493E9">wiredlime's Leetcode Stats</h2>
-  <div style="display: flex; flex-direction: column; justify-content: space-between; row-gap: 15px; width: 60%">
+  <h2 style="color: #467DE5">${username}'s Leetcode Stats</h2>
+  <div style="display: flex; flex-direction: column; justify-content: space-between; row-gap: 15px; width: 80%">
   
   <div style="display:flex; flex-direction: row; justify-content: space-between"><div style="display:flex; flex-direction: row; align-items: center;  column-gap: 10px"><div style="display:flex; width: 10px;height:10px; background-color: #50C878	; border-radius: 100%"></div><span>Easy</span></div><span>${data.easySolved}</span></div>
   <div style="display:flex; flex-direction: row; justify-content: space-between"><div style="display:flex; flex-direction: row; align-items: center;  column-gap: 10px"><div style="display:flex; width: 10px;height:10px; background-color: #FFC300	; border-radius: 100%"></div><span>Medium</span></div><span>${data.mediumSolved}</span></div>
@@ -32,14 +32,14 @@ app.get("/", async (req, res) => {
   const markup = await html(string);
 
   const svg = await satori(markup, {
-    width: 300,
+    width: 400,
     height: 200,
     fonts: [
       {
-        name: "Fredoka",
-        data: await inter,
-        weight: 400,
-        style: "normal",
+        name: "NotoSans",
+        data: NotoSans,
+        // weight: 400,
+        // style: "normal",
       },
     ],
   });
